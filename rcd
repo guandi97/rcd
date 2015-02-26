@@ -1,16 +1,20 @@
 rcd() { 
 	if [ -z "$2" ]; then
-		lst=$(ls -R | grep ./ | egrep "^\.(/[^/]+){$1}$")
-		grep -n "" <<< "$lst"
+		if [ "$1" -eq "$1" ] 2>/dev/null; then
+			lst=$(ls -R | grep ./ | egrep "^\.(/[^/]+){$1}")
+		else    
+			lst=$(ls -R | grep "$1")
+		fi
+                grep -n "" <<< "$lst"
 
 		read in
 		cd="`pwd`${$(awk -v nr=$in 'NR==nr' <<< "$lst"):1:-1}"
-	        cd $cd
-                
-	 	return
+		cd $cd
+
+		return
 	fi
           
-	for i in {1..$1..1}; do
+        for i in {1..$1..1}; do
 		cd $2
-	done    
+	done
 }
