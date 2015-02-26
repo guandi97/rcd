@@ -1,5 +1,5 @@
 rcd() { 
-	if [ !$2 ]; then
+	if [ -z "$2" ]; then
 		lst=$(ls -R | grep ./ | egrep "^\.(/[^/]+){$1}$")
 		grep -n "" <<< "$lst"
 
