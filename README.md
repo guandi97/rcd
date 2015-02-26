@@ -20,3 +20,14 @@ move forward 2 directories
 4
 /boot/efi %
 ```
+
+move to common
+```
+~/.steam/steam % rcd common
+1:./steamapps/common:
+2:./steamapps/common/Counter-Strike Global Offensive/platform/materials/vgui/common:
+3:./ubuntu12_32/steam-runtime/amd64/usr/share/doc/libgtk2.0-common:
+4:./ubuntu12_32/steam-runtime/i386/usr/share/doc/libgtk2.0-common:
+1
+~/.steam/steam/steamapps/common % 
+```
