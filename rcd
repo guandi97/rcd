@@ -3,7 +3,7 @@ rcd() {
 		if [ "$1" -eq "$1" ] 2>/dev/null; then
 			lst=$(ls -R | grep ./ | egrep "^\.(/[^/]+){$1}")
 		else    
-			lst=$(ls -R | grep "$1")
+			lst=$(ls -R | grep "$1:$")
 		fi
                 grep -n "" <<< "$lst"
 
