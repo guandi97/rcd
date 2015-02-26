@@ -5,12 +5,13 @@ examples
 
 back 3 directories
 ```
-% rcd 3 ..
+~ % rcd 3 ..
+/ %
 ```
 
 move forward 2 directories
 ```
-% rcd 2
+/ % rcd 2
 1:./aux/au:
 2:./aux/pedoro:
 3:./aux/transmission:
