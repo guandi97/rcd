@@ -5,7 +5,7 @@ examples
 
 back 3 directories
 ```
-~ % rcd 3 ..
+~ % rcd  .. 3
 / %
 ```
 
@@ -31,3 +31,12 @@ move to common
 1
 ~/.steam/steam/steamapps/common % 
 ```
+
+search for directory, only 2 levels deep
+```
+/var % rcd 2 obs
+1:./at/jobs:
+
+/var/at/jobs %
+```
+enter will bring to first search term
