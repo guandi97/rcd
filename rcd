@@ -1,25 +1,29 @@
-rcd() {
-        if [ -z "$2" ]; then
-                if [ "$1" -eq "$1" ] 2>/dev/null; then
-                        lst=$(ls -R | grep ./ | egrep "^\.(/[^/]+){$1}")
-                else
-                        lst=$(ls -R | grep "$1:$")
-                fi
-                grep -n "" <<< "$lst"
+rcd() 
+{
+	if [ "$2" ]; then
+		if [ "$2" -eq "$2" ] 2>/dev/null; then
+			for i in {1..$2..1}; do
+               	 		cd $1
+        		done
+			return
+		fi
+	fi
+	if [ "$1" -eq "$1" ] 2>/dev/null; then
+		lst=$(ls -R | grep ./ | egrep "^\.(/[^/]+){0,$1}$")
+		if [ "$2" ]; then
+       			lst=$(echo "$lst" | egrep "$2")
+		fi
+       	else
+       		lst=$(ls -R 2>/dev/null | egrep "$1:$")
+	fi
+	grep -n "" <<< "$lst"
 
-                read in
-                if [ -z "$in" ]; then
-                        in=1
-                fi
+	read in
+	if [ -z "$in" ]; then
+		in=1
+	fi
 
-                cd="`pwd`${$(awk -v nr=$in 'NR==nr' <<< "$lst"):1:-1}"
-                cd $cd
+	cd="`pwd`${$(awk -v nr=$in 'NR==nr' <<< "$lst"):1:-1}"
 
-                return
-        fi
-
-        for i in {1..$1..1}; do
-                cd $2
-        done
+	cd $cd
 }
-
